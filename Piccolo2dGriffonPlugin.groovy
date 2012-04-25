@@ -69,6 +69,13 @@ The following nodes will become available on a View script upon installing this 
 | pcomposite   | `edu.umd.cs.piccolox.nodes.PComposite`    |
 | pstyleText   | `edu.umd.cs.piccolox.nodes.PStyledText`   |
 
+`ppath` accepts an addtional `shape:` property that must be of type `java.awt.Shape`.
+
+**Important**
+
+Any `JComponent` nodes added inside the hierarchy of a `pcanvas`/`pswingCanvas` will be automatically wrapped using a `PSwing` node, which means
+the `JComponent` will be inserted in the scene graph.
+
 The following nodes are unique to this plugin
 
 | *Node*          | *Property* | *Type*            |
@@ -97,7 +104,7 @@ Transformation nodes can be applied to any node
 
 | *Node*         | *Property* | *Type*          | *Notes*                                  |
 | -------------- | ---------- | --------------- | ---------------------------------------- |
-| transformation |            |                 | accepts any transformation as child      |
+| transformation |            |                 | accepts any transformation as child      |
 | rotate         | theta      | double          |                                          |
 |                | x          | double          |                                          |
 |                | y          | double          |                                          |
@@ -107,10 +114,6 @@ Transformation nodes can be applied to any node
 |                | dy         | double          |                                          |
 | transform      | append     | boolean         | modifies the current transform if `true` |
 |                | transform  | AffineTransform |                                          |
-
-**Important**
-Any `JComponent` nodes added inside the hierarchy of a `pcanvas`/`pswingCanvas` will be automatically wrapped using a `PSwing` node, which means
-the `JComponent` will be inserted in the scene graph.
 
 ### Example
 
